@@ -1,5 +1,9 @@
-package zahv.alex.specification;
+package ru.zahv.alex.specification;
 
+/**
+ * @author azakhvalinskiy
+ * @date 14.08.17
+ */
 public enum ComparisonEnum {
     GT,
     GTE,

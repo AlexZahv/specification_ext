@@ -1,4 +1,4 @@
-package zahv.alex.specification;
+package ru.zahv.alex.specification;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,8 +14,13 @@ import java.util.Objects;
 import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.toList;
 
+/**
+ * @author azakhvalinskiy
+ * @date 14.08.17
+ */
 @Getter
 @Setter
+@SuppressWarnings({"all"})
 public abstract class AbstractFilter<T> implements Specification<T> {
     protected List<Condition> conditions = new ArrayList<>();
 
@@ -128,7 +133,7 @@ public abstract class AbstractFilter<T> implements Specification<T> {
 
     private String getStringPattern(Condition condition) {
         return ofNullable(condition.searchPattern)
-                .map(p -> String.format(p.getTemplate(), (String) condition.value).toLowerCase())
+                .map(p -> String.format(p.getTemplate(), condition.value).toLowerCase())
                 .orElse((String) condition.value);
     }
 

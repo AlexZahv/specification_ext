@@ -1,5 +1,7 @@
-package zahv.alex.specification;
+package ru.zahv.alex.specification;
 
+
+import lombok.NonNull;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -13,7 +15,8 @@ import javax.persistence.criteria.Root;
 public class CommonFilter<T> extends AbstractFilter<T> {
 
     @Override
-    public Predicate toPredicate(Root<T> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+    public Predicate toPredicate(@NonNull Root<T> root, CriteriaQuery<?> criteriaQuery,
+                                 @NonNull CriteriaBuilder criteriaBuilder) {
         criteriaQuery.distinct(true);
         return getCommonPredicate(root, criteriaQuery, criteriaBuilder);
     }

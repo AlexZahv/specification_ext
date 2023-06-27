@@ -1,7 +1,11 @@
-package zahv.alex.specification;
+package ru.zahv.alex.specification;
 
 import lombok.Getter;
 
+/**
+ * @author azakhvalinskiy
+ * @date 14.08.17
+ */
 @Getter
 public enum SearchPattern {
     LEFT("%%%s"),
@@ -9,7 +13,7 @@ public enum SearchPattern {
     LEFT_RIGHT("%%%s%%"),
     WITHOUT("%s");
 
-    private String template;
+    private final String template;
 
     SearchPattern(String template) {
         this.template = template;

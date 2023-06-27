@@ -1,8 +1,15 @@
-package zahv.alex.specification;
+package ru.zahv.alex.specification;
 
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
+/**
+ * @author azakhvalinskiy
+ * @date 14.08.17
+ */
 @NoArgsConstructor
+@SuppressWarnings({"all"})
 public class Condition {
     public enum Type {
         NUMERIC,
@@ -47,6 +54,12 @@ public class Condition {
     public Condition(ComparisonEnum comparisonEnum, String field, Comparable... values) {
         this.comparisonEnum = comparisonEnum;
         this.values = values;
+        this.field = field;
+    }
+
+    public Condition(ComparisonEnum comparisonEnum, String field, List<? extends Comparable> values) {
+        this.comparisonEnum = comparisonEnum;
+        this.values = values.stream().toArray();
         this.field = field;
     }
 
